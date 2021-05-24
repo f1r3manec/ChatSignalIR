@@ -37,7 +37,7 @@ namespace ChatSignal_IR.HubSI
 
         }
 
-        public async Task UsersList(string token)
+        public async Task UsersList()
         {
 
             await Clients.All.SendAsync(LISTAUSUARIOS, userLookup);

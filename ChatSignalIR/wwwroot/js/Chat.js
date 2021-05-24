@@ -49,11 +49,8 @@ const ingresarChat = () => {
     }
     connection.invoke(registro, usernameinput);
     d.getElementById("userinfo").setAttribute("hidden", "hidden");;
-    d.getElementById("username1").innerText = usernameinput;
     d.querySelector(".pantallaChat").removeAttribute("hidden", "hidden");
-
-    connection.invoke(listaUsuarios, "token");
-    
+    connection.invoke(listaUsuarios);
     
 };
 const crearMensage = (userName, message, hora, flagMensaje) => {
@@ -89,8 +86,12 @@ const crearListaUsuarios = (lista) => {
     d.querySelector("#ListaParticipantes").innerHTML = "";
 
     participantes.forEach((e) => {
-        console.log(e);
-        elementos += `<li class="bg-dark text-white small"> ${e} </li>`;
+
+        elementos += `<li class="d-flex flex-column m-2 align-items-start">
+                        <i class="far fa-user-circle"> <span class="text-withe">${e}</span></i>
+                    </li >`;
+      
+        //elementos += `<li class="bg-dark text-white small far fa-user-circle"> ${e} </li>`;
     });
     console.log(elementos);
     d.querySelector("#ListaParticipantes").insertAdjacentHTML("beforeend", elementos);
