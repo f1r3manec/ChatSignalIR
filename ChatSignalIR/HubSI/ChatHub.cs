@@ -20,8 +20,6 @@ namespace ChatSignal_IR.HubSI
 
         public async Task SendMessage(string usernName, string message)
         {
-
-
             await Clients.AllExcept(Context.ConnectionId).SendAsync(ENVIAMENSAJE, usernName, message, DateTime.Now);
         }
 

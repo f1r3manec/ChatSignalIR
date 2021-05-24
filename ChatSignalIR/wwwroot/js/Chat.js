@@ -9,19 +9,17 @@ d.getElementById("sendButton").disabled = true;
 
 
 connection.on(registro,
-    async (userName, message, lista) => {
+    async (userName, message) => {
         await crearMensage(userName, message, null, 3);
     });
 
 connection.on(listaUsuarios,(lista) => crearListaUsuarios(lista));
 
 
-
 connection.on(envioMensaje,
     async (userName, message, fecha) => {
-
         await crearMensage(userName, message, formatoFecha(fecha), 2);
-    });
+});
 
 connection.start()
     .then(() => {
