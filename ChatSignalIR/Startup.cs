@@ -48,6 +48,8 @@ namespace ChatSignalIR
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapHub<ChatHub>("/chat");
             });
+            app.UseCors(x => x.AllowAnyOrigin()
+            );;
         }
     }
 }
